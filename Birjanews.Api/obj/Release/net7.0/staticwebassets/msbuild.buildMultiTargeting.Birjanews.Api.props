@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Birjanews.Api.props" />
+</Project>
