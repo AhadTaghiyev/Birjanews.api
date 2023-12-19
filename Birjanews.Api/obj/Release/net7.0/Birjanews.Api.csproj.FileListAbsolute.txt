@@ -84,3 +84,4 @@
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/obj/Release/net7.0/ref/Birjanews.Api.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/MySqlConnector.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/Newtonsoft.Json.dll

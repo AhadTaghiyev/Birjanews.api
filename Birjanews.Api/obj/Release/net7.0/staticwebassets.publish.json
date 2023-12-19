@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K3lSgC8f0aNt4+BSlFG1MG5S6u/I2hkAgh1TNOoVOAQ=",
+  "Hash": "PNhuqOWyXdrZ+FWvCqaLSzlmsgGYPW4EVNFIheJa4As=",
   "Source": "Birjanews.Api",
   "BasePath": "_content/Birjanews.Api",
   "Mode": "Default",
@@ -389,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/images/slider/6.jpeg"
+    },
+    {
+      "Identity": "/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/wwwroot/assets/images/slider/logo.png",
+      "SourceId": "Birjanews.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/wwwroot/",
+      "BasePath": "_content/Birjanews.Api",
+      "RelativePath": "assets/images/slider/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/images/slider/logo.png"
     },
     {
       "Identity": "/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/wwwroot/assets/images/xezer.jpeg",

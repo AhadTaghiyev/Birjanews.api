@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
+using System.Text;
 using System.Threading.Tasks;
+using Azure;
 using Birjanews.Api.Contexts;
 using Birjanews.Api.Dtos;
 using Birjanews.Api.Entities;
 using Birjanews.Api.Extentions;
-using Birjanews.Api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using static System.Net.Mime.MediaTypeNames;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,7 +25,6 @@ namespace Birjanews.Api.Controllers
     {
         private readonly BirjaDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
-
         public AdvertisementController(BirjaDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
@@ -93,36 +95,6 @@ namespace Birjanews.Api.Controllers
             }
             return Ok(advertisement);
         }
-        //[HttpGet("s")]
-        //public async Task<IActionResult> Insert()
-        //{
-        //    U109051628BirjanewsazContext con = new();
-        //    var adverts = await con.Blogs.ToListAsync();
-        //    adverts.ForEach(x =>
-        //    {
-        //        if (x.PartnerId != null)
-        //        {
-        //            Advertisement advertisement = new Advertisement
-        //            {
-        //                Date = x.CreatedDate,
-        //                Status = x.Status == 0,
-        //                Description = x.TextAz,
-        //                DescriptionMini = x.ShortAz,
-        //                Image = "jhj",
-        //                ImageUrl = "jhj",
-        //                IsDeleted = false,
-        //                OrganizerId = (int)x.PartnerId,
-        //                Title = x.TitleAz,
-        //            };
-        //            _context.AddAsync(advertisement);
-        //        }
-              
-        //    });
-        //    await _context.SaveChangesAsync();
-           
-        //    return Ok();
-        //}
-
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Create([FromForm] AdvertisementPostDto dto)
@@ -142,7 +114,7 @@ namespace Birjanews.Api.Controllers
                 DescriptionMini=dto.DescriptionMini,
                 ImageUrl= $"https://api.birjanews.az/assets/images/Default.jpeg",
                 Image= "Default.jpeg",
-                OrganizerId=dto.OrganizerId,
+                OrganizerId=dto.Organizer,
             };
             if (dto.Image != null)
             {
@@ -154,8 +126,13 @@ namespace Birjanews.Api.Controllers
             }
             _context.Advertisements.Add(advertisement);
             await _context.SaveChangesAsync();
+            InstagramFacebookPost instagramFacebookPost = new InstagramFacebookPost(advertisement.Description);
+           await instagramFacebookPost.UploadMedia();
+
             return CreatedAtAction(nameof(Get), new { id = advertisement.Id }, advertisement);
         }
+
+        
         [HttpPut("{id}")]
         [Authorize]
         public async Task<IActionResult> Update(int id, [FromForm] AdvertisementPostDto dto)
@@ -189,7 +166,7 @@ namespace Birjanews.Api.Controllers
                 existingAdvertisement.ImageUrl = imageUrl;
             }
 
-            existingAdvertisement.OrganizerId = dto.OrganizerId;
+            existingAdvertisement.OrganizerId = dto.Organizer;
 
             _context.Advertisements.Update(existingAdvertisement);
             await _context.SaveChangesAsync();

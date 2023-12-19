@@ -32,6 +32,7 @@
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/Microsoft.SqlServer.Server.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/Microsoft.Win32.SystemEvents.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/MySqlConnector.dll
+/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/Newtonsoft.Json.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/Pomelo.EntityFrameworkCore.MySql.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/Swashbuckle.AspNetCore.Swagger.dll
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Release/net7.0/publish/Swashbuckle.AspNetCore.SwaggerGen.dll

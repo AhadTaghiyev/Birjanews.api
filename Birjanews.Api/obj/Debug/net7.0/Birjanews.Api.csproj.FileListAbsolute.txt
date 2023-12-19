@@ -84,3 +84,4 @@
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/obj/Debug/net7.0/Birjanews.Api.pdb
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/obj/Debug/net7.0/Birjanews.Api.genruntimeconfig.cache
 /Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/obj/Debug/net7.0/ref/Birjanews.Api.dll
+/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/bin/Debug/net7.0/Newtonsoft.Json.dll

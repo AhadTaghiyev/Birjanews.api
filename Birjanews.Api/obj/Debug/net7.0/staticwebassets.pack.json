@@ -89,6 +89,10 @@
       "PackagePath": "staticwebassets/assets/images/slider/6.jpeg"
     },
     {
+      "Id": "/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/wwwroot/assets/images/slider/logo.png",
+      "PackagePath": "staticwebassets/assets/images/slider/logo.png"
+    },
+    {
       "Id": "/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/wwwroot/assets/images/xezer.jpeg",
       "PackagePath": "staticwebassets/assets/images/xezer.jpeg"
     },

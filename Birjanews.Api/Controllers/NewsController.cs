@@ -21,6 +21,7 @@ namespace Birjanews.Api.Controllers
     {
         private readonly BirjaDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
+     
 
         public NewsController(BirjaDbContext context, IWebHostEnvironment webHostEnvironment)
         {
@@ -73,7 +74,10 @@ namespace Birjanews.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            if (dto.Organizer == 0)
+            {
+                return BadRequest("Organizer id can not be 0");
+            }
           
             var News = new News
             {
@@ -84,7 +88,7 @@ namespace Birjanews.Api.Controllers
                 DescriptionMini=dto.DescriptionMini,
                 ImageUrl= $"{Request.Scheme}://{Request.Host}/Default.jpeg",
                 Image= "Default.jpeg",
-                OrganizerId=dto.OrganizerId,
+                OrganizerId=dto.Organizer,
             };
             if (dto.Image != null)
             {
@@ -94,8 +98,17 @@ namespace Birjanews.Api.Controllers
                 News.Image = image;
                 News.ImageUrl = imageUrl;
             }
-            _context.News.Add(News);
-            await _context.SaveChangesAsync();
+         
+            try
+            {
+               await _context.News.AddAsync(News);
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
             return CreatedAtAction(nameof(Get), new { id = News.Id }, News);
         }
         [HttpPut("{id}")]
@@ -131,7 +144,7 @@ namespace Birjanews.Api.Controllers
                 existingNews.ImageUrl = imageUrl;
             }
 
-            existingNews.OrganizerId = dto.OrganizerId;
+            existingNews.OrganizerId = dto.Organizer;
 
             _context.News.Update(existingNews);
             await _context.SaveChangesAsync();
