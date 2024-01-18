@@ -58,20 +58,28 @@ namespace Birjanews.Api.Controllers
             return Ok(result);
         }
         [HttpGet("client")]
-        public async Task<IActionResult> GetAllClient(int pageNumber = 1, int pageSize = 10)
+        public async Task<IActionResult> GetAllClient(int pageNumber = 1, int pageSize = 10,string? search=null)
         {
             if (pageNumber < 1 || pageSize <= 0)
             {
                 return BadRequest("Invalid pagination parameters.");
             }
 
-            var advertisements = await _context.Advertisements
-                .Where(x => x.IsDeleted == false&& x.Status == true)
+            var query = _context.Advertisements
+                .Where(x => x.IsDeleted == false && x.Status == true)
                    .OrderByDescending(x => x.Id)
                 .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-             
-                .ToListAsync();
+                .Take(pageSize);
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                query = query.Where(x => x.Title.Trim().ToLower() == search.Trim().ToLower());
+            }
+
+
+                var advertisements=await query.ToListAsync();
+
+
 
             // Additionally, you can also return the total count for client side logic (like pagination controls)
             var totalCount = await _context.Advertisements.CountAsync(x => x.IsDeleted == false&&x.Status==true);
@@ -103,7 +111,7 @@ namespace Birjanews.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+           
           
             var advertisement = new Advertisement
             {
@@ -115,20 +123,24 @@ namespace Birjanews.Api.Controllers
                 ImageUrl= $"https://api.birjanews.az/assets/images/Default.jpeg",
                 Image= "Default.jpeg",
                 OrganizerId=dto.Organizer,
+                
             };
+            string imageUrl = string.Empty;
             if (dto.Image != null)
             {
                 string image = dto.Image.SaveImage(_webHostEnvironment.WebRootPath, "assets/images");
                 var imagePath = Path.Combine("assets", "images", image);
-                var imageUrl = $"https://api.birjanews.az/assets/images/{imagePath}";
+                 imageUrl = $"https://api.birjanews.az/assets/images/{imagePath}";
                 advertisement.Image = image;
                 advertisement.ImageUrl = imageUrl;
             }
             _context.Advertisements.Add(advertisement);
             await _context.SaveChangesAsync();
-            InstagramFacebookPost instagramFacebookPost = new InstagramFacebookPost(advertisement.Description);
-           await instagramFacebookPost.UploadMedia();
-
+            InstagramFacebookPost instagramFacebookPost = new InstagramFacebookPost(imageUrl, advertisement.DescriptionMini);
+            if (advertisement.Status)
+            {
+                await instagramFacebookPost.UploadMedia();
+            }
             return CreatedAtAction(nameof(Get), new { id = advertisement.Id }, advertisement);
         }
 
@@ -188,5 +200,8 @@ namespace Birjanews.Api.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+
+
     }
 }

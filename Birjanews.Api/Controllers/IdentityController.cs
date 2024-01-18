@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Birjanews.Api.Contexts;
 using Birjanews.Api.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -17,11 +18,12 @@ namespace Birjanews.Api.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly string _jwtSecretKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
-
-        public IdentityController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        readonly BirjaDbContext _birjaDbContext;
+        public IdentityController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, BirjaDbContext birjaDbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _birjaDbContext = birjaDbContext;
         }
         [HttpPost("register")]
         [Authorize]
@@ -143,6 +145,17 @@ namespace Birjanews.Api.Controllers
             return Ok(users);
         }
 
+        public async Task<IActionResult> Remove(string id)
+        {
+            IdentityUser identityUser = await _userManager.FindByIdAsync(id);
+            if (identityUser == null)
+            {
+                return NotFound();
+            }
+            _birjaDbContext.Users.Remove(identityUser);
+            await _birjaDbContext.SaveChangesAsync();
+            return Ok();
+        }
 
     }
 }

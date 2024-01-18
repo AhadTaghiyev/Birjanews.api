@@ -1,31 +1,27 @@
 ﻿<Properties StartupConfiguration="{FFB3CAD3-1295-4C42-BE8B-1CE8C29CC26F}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Birjanews.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Birjanews.Api/Program.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Birjanews.Api/Services/InstagramFacebookPost.cs">
     <Files>
       <File FileName="Birjanews.Api/Entities/BaseEntity.cs" />
       <File FileName="Birjanews.Api/Entities/Slider.cs" />
       <File FileName="Birjanews.Api/Extentions/FileExtentions.cs" />
       <File FileName="Birjanews.Api/Controllers/SlidersController.cs" />
       <File FileName="Birjanews.Api/Contexts/BirjaDbContext.cs" />
-      <File FileName="Birjanews.Api/Program.cs" Line="18" Column="4" />
+      <File FileName="Birjanews.Api/Program.cs" />
       <File FileName="Birjanews.Api/appsettings.json" />
       <File FileName="Birjanews.Api/Entities/Setting.cs" />
-      <File FileName="Birjanews.Api/Controllers/SettingsController.cs" />
+      <File FileName="Birjanews.Api/Controllers/SettingsController.cs" Line="14" Column="37" />
       <File FileName="Birjanews.Api/Dtos/SettingPostDto.cs" />
       <File FileName="Birjanews.Api/Controllers/OrganizerController.cs" />
       <File FileName="Birjanews.Api/Dtos/OrganizerPostDto.cs" />
       <File FileName="Birjanews.Api/Dtos/RegisterDto.cs" />
-      <File FileName="Birjanews.Api/Controllers/IdentityController.cs" />
+      <File FileName="Birjanews.Api/Controllers/IdentityController.cs" Line="156" Column="54" />
       <File FileName="Birjanews.Api/Dtos/LoginDto.cs" />
       <File FileName="Birjanews.Api/Properties/launchSettings.json" />
       <File FileName="Birjanews.Api/Entities/Advertisement.cs" />
-      <File FileName="Birjanews.Api/Dtos/AdvertisementPostDto.cs" />
-      <File FileName="Birjanews.Api/Controllers/AdvertisementController.cs" Line="58" Column="28" />
       <File FileName="Birjanews.Api/wwwroot/assets/images/AdvertisementPostDto.cs" />
       <File FileName="Birjanews.Api/Dtos/AdvertisementGetDto.cs" />
       <File FileName="Birjanews.Api/Controllers/NewsController.cs" />
@@ -33,21 +29,35 @@
       <File FileName="Birjanews.Api/Controllers/MessageController.cs" />
       <File FileName="Birjanews.Api/Entities/Organizer.cs" />
       <File FileName="Birjanews.Api/Birjanews.Api.csproj" />
-      <File FileName="Birjanews.Api/Models/U109051628BirjanewsazContext.cs" />
+      <File FileName="Birjanews.Api/Controllers/AdvertisementController.cs" Line="179" Column="14" />
+      <File FileName="Birjanews.Api/Services/InstagramFacebookPost.cs" Line="106" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Birjanews.Api" expanded="True">
-            <Node name="Birjanews.Api" expanded="True">
+            <Node name="Birjanews.Api">
               <Node name="Controllers" expanded="True" />
               <Node name="Entities" expanded="True" />
-              <Node name="Program.cs" selected="True" />
+              <Node name="Services" expanded="True">
+                <Node name="InstagramFacebookPost.cs" selected="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="assets" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Birjanews.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/Controllers/NewsController.cs" relfile="Birjanews.Api/Controllers/NewsController.cs" line="72" column="1" />
+      <Breakpoint file="/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/Services/InstagramFacebookPost.cs" relfile="Birjanews.Api/Services/InstagramFacebookPost.cs" line="25" column="1" />
+      <Breakpoint file="/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/Services/InstagramFacebookPost.cs" relfile="Birjanews.Api/Services/InstagramFacebookPost.cs" line="61" column="1" />
+      <Breakpoint file="/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/Services/InstagramFacebookPost.cs" relfile="Birjanews.Api/Services/InstagramFacebookPost.cs" line="71" column="1" />
+      <Breakpoint file="/Users/ehedtagiyev/Desktop/Birjanews.Api/Birjanews.Api/Services/InstagramFacebookPost.cs" relfile="Birjanews.Api/Services/InstagramFacebookPost.cs" line="100" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

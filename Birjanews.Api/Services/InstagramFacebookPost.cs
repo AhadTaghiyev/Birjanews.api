@@ -12,11 +12,11 @@ public class InstagramFacebookPost
     private readonly string caption;
     private readonly string pageId;
 
-    public InstagramFacebookPost(string caption)
+    public InstagramFacebookPost(string caption,string imgUrl)
     {
-        accessToken = "EAAFLqS6PKXsBO3kPYyUau9adFherrpgqTzFAe9Pttsj9AI07SADFwRt920oJrXFhc6f8LlNv2GmF8yOLgUg9YzjKUSZBA0ka5WoZCZCKUZBSILOZBwZAbDzxe4UeZBuOQZCnK470TsZCiH9YkdeymixUWvmEyH3FaiagHtt2ol4wUexdvL0BZCpmzsdsNQIYR52TVnFW8JcbdisWShx2CnL4OW4xhcppY6umOUh6kZD";
+        accessToken = "EAAFLqS6PKXsBO8Hmbe9sgSUQWqnTjnqMTVz7vfUGfcPVHSiGbZC0ZB0R56pHO9TSszyqnqP9e7w8qV7CZCZAuySbUZCjYZAKNbvFoMlsonrkYe87AM4pLzLsWQZA5o9LlHtOmZAktRKbViNW6menBTh2aAouio8FU80pn1oYLuJes7ihMQDLxzbevvOaJHkn92uq";
         igUserId = "17841461169630863";
-        imageUrl = "https://api.birjanews.az/assets/images/Default.jpeg";
+        imageUrl = imgUrl;
         this.caption = caption;
         pageId = "122106642020003010";
     }
@@ -54,7 +54,6 @@ public class InstagramFacebookPost
         {
             Console.WriteLine("Error: " + ex.Message);
         }
-
         await PostToFacebook();
     }
 
